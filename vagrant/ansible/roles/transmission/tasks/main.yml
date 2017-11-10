@@ -1,0 +1,11 @@
+- include_tasks: install.yml
+  become: true
+
+- include_tasks: configure.yml
+  become: true
+
+- name: Start transmission daemon
+  systemd:
+    state: started
+    name: transmission-daemon
+  become: true

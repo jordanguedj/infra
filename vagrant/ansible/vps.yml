@@ -1,0 +1,13 @@
+- hosts:
+    all
+  pre_tasks:
+    - name: update all packages
+      yum:
+        name: '*'
+        state: latest
+      become: true
+  roles:
+    - role: vim
+    - role: transmission
+  tags:
+    - vps

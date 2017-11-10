@@ -1,1 +1,4 @@
 *~
+*.retry
+vagrant/.vagrant/
+
