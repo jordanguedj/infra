@@ -1,0 +1,9 @@
+- name: install extra packages
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - vim
+    - net-tools
+    - htop
+  become: true

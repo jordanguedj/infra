@@ -1,5 +1,0 @@
-- name: install epel-release
-  yum:
-    name: 'vim'
-    state: latest
-  become: true
