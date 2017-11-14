@@ -10,5 +10,5 @@
 
 - name: copy settings.json
   template:
-    src: etc/transmission-daemon/settings.json.j2
-    dest: /etc/transmission-daemon/settings.json
+    src: var/lib/transmission/.config/transmission-daemon/settings.json.j2
+    dest: /var/lib/transmission/.config/transmission-daemon/settings.json

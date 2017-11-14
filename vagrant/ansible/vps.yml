@@ -9,5 +9,7 @@
   roles:
     - role: vim
     - role: transmission
+      tags:
+        - transmission
   tags:
     - vps
