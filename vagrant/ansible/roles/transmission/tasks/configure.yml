@@ -1,4 +1,4 @@
-- name: Stop transmission daemon
+- name: ensure transmission service is stopped
   systemd:
     state: stopped
     name: transmission-daemon

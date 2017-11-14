@@ -4,13 +4,13 @@
 - include_tasks: configure.yml
   become: true
 
-- name: enable transmission daemon
+- name: enable transmission service
   systemd:
     name: transmission-daemon
     enabled: yes
   become: true
 
-- name: start transmission daemon
+- name: start transmission service
   systemd:
     name: transmission-daemon
     state: started
