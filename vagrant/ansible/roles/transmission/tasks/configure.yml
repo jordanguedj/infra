@@ -8,6 +8,14 @@
     path: /etc/transmission-daemon
     state: directory
 
+- name: create /var/lib/transmission/.config/transmission-daemon directory
+  file:
+    path: /var/lib/transmission/.config/transmission-daemon
+    state: directory
+    mode: 0755
+    owner: transmission
+    group: transmission
+
 - name: copy settings.json
   template:
     src: var/lib/transmission/.config/transmission-daemon/settings.json.j2
