@@ -3,7 +3,7 @@
   pre_tasks:
     - name: update all packages
       yum:
-        name: '*'
+        name: "*"
         state: latest
       become: true
   roles:
@@ -16,5 +16,8 @@
     - role: transmission
       tags:
         - transmission
+    - role: vpn
+      tags:
+        - vpn
   tags:
     - vps

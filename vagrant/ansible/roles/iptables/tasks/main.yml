@@ -1,6 +1,6 @@
 - name: install iptables-services
   yum:
-    name: 'iptables-services'
+    name: "iptables-services"
     state: latest
   become: true
 

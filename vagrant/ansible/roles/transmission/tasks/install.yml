@@ -1,11 +1,11 @@
 - name: install epel-release
   yum:
-    name: 'epel-release'
+    name: "epel-release"
     state: latest
 
 - name: update all packages
   yum:
-    name: '*'
+    name: "*"
     state: latest
 
 - name: install transmission
