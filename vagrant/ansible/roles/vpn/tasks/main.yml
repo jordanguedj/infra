@@ -1,2 +1,5 @@
 - include_tasks: install.yml
   become: true
+
+- include_tasks: configure.yml
+  become: true
