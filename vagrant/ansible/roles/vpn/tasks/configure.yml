@@ -41,10 +41,32 @@
      - server.key
 
 - name: generate client keys
-  shell: "source ./vars && ./build-key --batch {{ item }}"
+  shell: "source ./vars && export KEY_CN={{ item }} && ./build-key --batch {{ item }}"
   args:
     chdir: /etc/openvpn/easy-rsa
   with_items: "{{ vpn_clients }}"
+
+- name: fetch CA and D-H key exchange file
+  fetch:
+    src: /etc/openvpn/easy-rsa/keys/{{ item }}
+    dest: fetched
+  with_items:
+    - ca.crt
+    - dh2048.pem
+
+- name: fetch client keys and certificates
+  fetch:
+    src: /etc/openvpn/easy-rsa/keys/{{ item }}.key
+    dest: fetched
+  with_items:
+    - "{{ vpn_clients }}"
+
+- name: fetch client certificates
+  fetch:
+    src: /etc/openvpn/easy-rsa/keys/{{ item }}.crt
+    dest: fetched
+  with_items:
+    - "{{ vpn_clients }}"
 
 - name: enable ip forwarding
   sysctl:
