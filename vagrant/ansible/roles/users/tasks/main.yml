@@ -1,0 +1,14 @@
+---
+- name: add users
+  user:
+    name: "{{ item }}"
+  with_items: "{{ users }}"
+  become: true
+
+- name: enable ssh access
+  authorized_key:
+    user: jordan
+    state: present
+    key: "{{ lookup('file', '../files/ssh_pubkeys/{{ item }}') }}"
+  with_items: "{{ users }}"
+  become: true
