@@ -3,3 +3,15 @@
 
 - include_tasks: configure.yml
   become: true
+
+- name: enable openvpn@server service
+  systemd:
+    name: openvpn@server
+    enabled: yes
+  become: true
+
+- name: start openvpn@server service
+  systemd:
+    name: openvpn@server
+    state: started
+  become: true
