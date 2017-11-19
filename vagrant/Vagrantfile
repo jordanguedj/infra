@@ -64,6 +64,10 @@ Vagrant.configure("2") do |config|
   # ansible provisioning
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "ansible/site.yml"
+    #ansible.verbose = "vvv"
+    ansible.groups = {
+      "vps" => ["vps", "vm2"]
+    }
   end
   # transmission
   config.vm.network "forwarded_port", guest: 9091, host: 9091

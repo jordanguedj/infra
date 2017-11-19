@@ -1,5 +1,5 @@
 - hosts:
-    vps
+    all
   pre_tasks:
     - name: update all packages
       yum:
