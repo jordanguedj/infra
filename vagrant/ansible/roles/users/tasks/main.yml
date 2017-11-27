@@ -3,6 +3,7 @@
   user:
     name: "{{ item }}"
   with_items: "{{ users }}"
+  remote_user: root
   become: true
 
 - name: enable ssh access
@@ -11,4 +12,5 @@
     state: present
     key: "{{ lookup('file', '../files/ssh_pubkeys/{{ item }}') }}"
   with_items: "{{ users }}"
+  remote_user: root
   become: true

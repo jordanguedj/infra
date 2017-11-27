@@ -12,4 +12,5 @@
     - vim
     - net-tools
     - htop
+    - lsof
   become: true
