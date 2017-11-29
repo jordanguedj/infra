@@ -8,7 +8,7 @@
 
 - name: enable ssh access
   authorized_key:
-    user: jordan
+    user: "{{ item }}"
     state: present
     key: "{{ lookup('file', '../files/ssh_pubkeys/{{ item }}') }}"
   with_items: "{{ users }}"
