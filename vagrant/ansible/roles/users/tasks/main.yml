@@ -14,3 +14,29 @@
   with_items: "{{ users }}"
   remote_user: root
   become: true
+
+- name: check if a '{{ sudoers_group }}' group exists
+  group:
+    name: "{{ sudoers_group }}"
+    state: present
+  remote_user: root
+  become: true
+
+- name: allow passwordless sudos to '{{ sudoers_group }}' group
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%{{ sudoers_group }}'
+    line: '%{{ sudoers_group }} ALL=(ALL) NOPASSWD: ALL'
+    validate: visudo -cf %s
+  remote_user: root
+  become: true
+
+- name: add users to '{{ sudoers_group }}' group
+  user:
+    name: "{{ item }}"
+    groups: "{{ sudoers_group }}"
+    append: yes
+  with_items: "{{ users }}"
+  remote_user: root
+  become: true

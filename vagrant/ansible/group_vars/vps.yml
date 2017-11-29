@@ -1,3 +1,4 @@
 ---
 users: ["jordan"]
+sudoers_group : "wheel"
 vpn_clients: ["jordan", "jordan-android"]
