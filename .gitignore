@@ -1,4 +1,5 @@
 *~
 *.retry
+*.DS_Store
 vagrant/.vagrant/
 
