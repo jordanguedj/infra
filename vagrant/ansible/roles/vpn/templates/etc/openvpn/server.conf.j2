@@ -32,8 +32,7 @@
 port 1194
 
 # TCP or UDP server?
-proto tcp
-;proto udp
+proto {{ vpn_proto }}
 
 # "dev tun" will create a routed IP tunnel,
 # "dev tap" will create an ethernet tunnel.
@@ -197,8 +196,8 @@ push "redirect-gateway def1 bypass-dhcp"
 # http://openvpn.net/faq.html#dhcpcaveats
 # The addresses below refer to the public
 # DNS servers provided by opendns.com.
-push "dhcp-option DNS 8.8.8.8"
-push "dhcp-option DNS 8.8.4.4"
+push "dhcp-option DNS {{ vpn_dns_1 }}"
+push "dhcp-option DNS {{ vpn_dns_2 }}"
 
 # Uncomment this directive to allow different
 # clients to be able to "see" each other.

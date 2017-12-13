@@ -61,12 +61,12 @@ export KEY_EXPIRE=3650
 # These are the default values for fields
 # which will be placed in the certificate.
 # Don't leave any of these fields blank.
-export KEY_COUNTRY="FR"
-export KEY_PROVINCE="FR"
-export KEY_CITY="Gravelines"
-export KEY_ORG="awesomecorp"
-export KEY_EMAIL="guedj.jordan@gmail.com"
-export KEY_OU="awesomecorp"
+export KEY_COUNTRY="{{ vpn_key_country }}"
+export KEY_PROVINCE="{{ vpn_key_province }}"
+export KEY_CITY="{{ vpn_key_city }}"
+export KEY_ORG="{{ vpn_key_org }}"
+export KEY_EMAIL="{{ vpn_key_email }}"
+export KEY_OU="{{ vpn_key_ou }}"
 
 # X509 Subject Field
 export KEY_NAME="server"
@@ -77,4 +77,4 @@ export KEY_NAME="server"
 
 # If you'd like to sign all keys with the same Common Name, uncomment the KEY_CN export below
 # You will also need to make sure your OpenVPN server config has the duplicate-cn option set
-export KEY_CN="vps.jordanguedj.com"
+export KEY_CN="{{ vpn_key_cn }}"

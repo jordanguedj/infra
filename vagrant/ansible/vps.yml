@@ -1,15 +1,19 @@
-- hosts:
-    all
+- hosts: all
+  gather_facts: no
   pre_tasks:
     - name: update all packages
       yum:
         name: "*"
         state: latest
       become: true
+      remote_user: root
   roles:
     - role: users
       tags:
         - users
+    - role: gather_facts
+      tags:
+        - gather_facts
     - role: iptables
       tags:
         - iptables
