@@ -40,3 +40,12 @@
   with_items: "{{ users }}"
   remote_user: root
   become: true
+
+- name: copy bash configuration
+  copy:
+    src: "dotfiles/{{ item }}/bashrc"
+    dest: "/home/{{ item }}/.bashrc"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: 0644
+  with_items: "{{ users }}"
