@@ -3,3 +3,6 @@
 *.DS_Store
 .vagrant/
 
+# ignore Galaxy roles
+roles/kyl191.openvpn/
+
