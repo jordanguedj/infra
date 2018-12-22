@@ -23,7 +23,10 @@
     - role: transmission
       tags:
         - transmission
-    - role: vpn
+    - role: kyl191.openvpn
+      clients: ["jordan"]
+      openvpn_port: 2215
+      openvpn_proto: "tcp"
       tags:
         - vpn
   tags:
