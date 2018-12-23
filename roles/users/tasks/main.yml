@@ -3,8 +3,6 @@
   user:
     name: "{{ item }}"
   with_items: "{{ users }}"
-  remote_user: root
-  become: true
 
 - name: enable ssh access
   authorized_key:
@@ -12,15 +10,11 @@
     state: present
     key: "{{ lookup('file', '../files/ssh_pubkeys/{{ item }}') }}"
   with_items: "{{ users }}"
-  remote_user: root
-  become: true
 
 - name: check if a '{{ sudoers_group }}' group exists
   group:
     name: "{{ sudoers_group }}"
     state: present
-  remote_user: root
-  become: true
 
 - name: allow passwordless sudos to '{{ sudoers_group }}' group
   lineinfile:
@@ -29,8 +23,6 @@
     regexp: '^%{{ sudoers_group }}'
     line: '%{{ sudoers_group }} ALL=(ALL) NOPASSWD: ALL'
     validate: visudo -cf %s
-  remote_user: root
-  become: true
 
 - name: add users to '{{ sudoers_group }}' group
   user:
@@ -38,8 +30,6 @@
     groups: "{{ sudoers_group }}"
     append: yes
   with_items: "{{ users }}"
-  remote_user: root
-  become: true
 
 - name: copy bash configuration
   copy:

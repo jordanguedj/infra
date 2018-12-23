@@ -2,7 +2,6 @@
   yum:
     name: "epel-release"
     state: latest
-  become: true
 
 - name: install extra packages
   yum:
@@ -13,4 +12,3 @@
     - net-tools
     - htop
     - lsof
-  become: true

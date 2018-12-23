@@ -14,17 +14,17 @@
     - role: gather_facts
       tags:
         - gather_facts
-    - role: iptables
-      tags:
-        - iptables
     - role: extra
       tags:
         - extra
     - role: transmission
       tags:
         - transmission
-    - role: vpn
+    - role: kyl191.openvpn
       tags:
         - vpn
+    - role: iptables
+      tags:
+        - iptables
   tags:
     - vps

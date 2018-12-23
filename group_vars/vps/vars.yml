@@ -1,10 +1,16 @@
 ---
 users: ["jordan"]
 sudoers_group : "wheel"
-vpn_clients: ["jordan", "jordan-android"]
-vpn_proto: "tcp"
-vpn_dns_1: "8.8.8.8"
-vpn_dns_2: "8.8.4.4"
+clients: ["jo", "jo-phone"]
+openvpn_server_network: "10.9.0.0"
+openvpn_server_netmask: "255.255.255.0"
+openvpn_port: 2215
+openvpn_proto: "tcp"
+openvpn_client_register_dns: false # for windows platforms
+manage_firewall_rules: false # iptables rules are managed by the 'iptables' role
+url: "{{ inventory_hostname }}"
+bind_dn: "uid=admin,ou=admin,dc={{ '.'.join(inventory_hostname.split('.')[:-1]) }},dc={{ inventory_hostname.split('.')[-1] }}"
+base_dn: "ou=admin,dc={{ '.'.join(inventory_hostname.split('.')[:-1]) }},dc={{ inventory_hostname.split('.')[-1] }}"
 transmission_download_dir: "/var/lib/transmission/Downloads"
 transmission_rpc_username: "jordan"
 transmission_rpc_whitelist: "127.0.0.1,10.8.0.*,10.0.2.*"
