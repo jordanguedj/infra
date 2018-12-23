@@ -7,6 +7,7 @@ openvpn_server_netmask: "255.255.255.0"
 openvpn_port: 2215
 openvpn_proto: "tcp"
 openvpn_client_register_dns: false # for windows platforms
+manage_firewall_rules: false # iptables rules are managed by the 'iptables' role
 url: "{{ inventory_hostname }}"
 bind_dn: "uid=admin,ou=admin,dc={{ '.'.join(inventory_hostname.split('.')[:-1]) }},dc={{ inventory_hostname.split('.')[-1] }}"
 base_dn: "ou=admin,dc={{ '.'.join(inventory_hostname.split('.')[:-1]) }},dc={{ inventory_hostname.split('.')[-1] }}"
