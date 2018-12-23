@@ -1,10 +1,6 @@
 ---
 users: ["jordan"]
 sudoers_group : "wheel"
-vpn_clients: ["jordan", "jordan-android"]
-vpn_proto: "tcp"
-vpn_dns_1: "8.8.8.8"
-vpn_dns_2: "8.8.4.4"
 transmission_download_dir: "/var/lib/transmission/Downloads"
 transmission_rpc_username: "jordan"
 transmission_rpc_whitelist: "127.0.0.1,10.8.0.*,10.0.2.*"
