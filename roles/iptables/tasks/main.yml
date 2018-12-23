@@ -2,13 +2,11 @@
   yum:
     name: "iptables-services"
     state: latest
-  become: true
 
 - name: ensure iptables service is stopped
   systemd:
     state: stopped
     name: iptables
-  become: true
 
 - name: copy iptables.sh
   template:
@@ -17,8 +15,6 @@
     owner: root
     group: root
     mode: 0744
-  become: true
 
 - name: execute iptables.sh
   shell: /root/iptables.sh > /root/iptables.log
-  become: true
