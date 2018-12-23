@@ -66,15 +66,13 @@ Vagrant.configure("2") do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.galaxy_role_file = 'requirements.yml'
     ansible.playbook = "site.yml"
-    #ansible.verbose = "vvv"
+    ansible.become = true
     ansible.groups = {
       "vps" => ["vps"]
     }
-    #ansible.tags = [""]
-    ansible.force_remote_user = true
   end
   # transmission
   config.vm.network "forwarded_port", guest: 9091, host: 9091
   # openvpn
-  config.vm.network "forwarded_port", guest: 1194, host: 1194
+  config.vm.network "forwarded_port", guest: 2215, host: 2215
 end
