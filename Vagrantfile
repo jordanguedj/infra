@@ -64,6 +64,7 @@ Vagrant.configure("2") do |config|
   config.ssh.username = "vagrant"
   # ansible provisioning
   config.vm.provision "ansible" do |ansible|
+    ansible.galaxy_role_file = 'requirements.yml'
     ansible.playbook = "site.yml"
     #ansible.verbose = "vvv"
     ansible.groups = {
