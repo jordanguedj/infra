@@ -11,8 +11,8 @@
   become: true
 
 - name: copy iptables.sh
-  copy:
-    src: root/iptables.sh
+  template:
+    src: root/iptables.sh.j2
     dest: /root/iptables.sh
     owner: root
     group: root

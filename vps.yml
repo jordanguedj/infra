@@ -14,9 +14,6 @@
     - role: gather_facts
       tags:
         - gather_facts
-    - role: iptables
-      tags:
-        - iptables
     - role: extra
       tags:
         - extra
@@ -24,10 +21,10 @@
       tags:
         - transmission
     - role: kyl191.openvpn
-      clients: ["jordan"]
-      openvpn_port: 2215
-      openvpn_proto: "tcp"
       tags:
         - vpn
+    - role: iptables
+      tags:
+        - iptables
   tags:
     - vps

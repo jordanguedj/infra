@@ -1,6 +1,15 @@
 ---
 users: ["jordan"]
 sudoers_group : "wheel"
+clients: ["jo", "jo-phone"]
+openvpn_server_network: "10.9.0.0"
+openvpn_server_netmask: "255.255.255.0"
+openvpn_port: 2215
+openvpn_proto: "tcp"
+openvpn_client_register_dns: false # for windows platforms
+url: "{{ inventory_hostname }}"
+bind_dn: "uid=admin,ou=admin,dc={{ '.'.join(inventory_hostname.split('.')[:-1]) }},dc={{ inventory_hostname.split('.')[-1] }}"
+base_dn: "ou=admin,dc={{ '.'.join(inventory_hostname.split('.')[:-1]) }},dc={{ inventory_hostname.split('.')[-1] }}"
 transmission_download_dir: "/var/lib/transmission/Downloads"
 transmission_rpc_username: "jordan"
 transmission_rpc_whitelist: "127.0.0.1,10.8.0.*,10.0.2.*"
